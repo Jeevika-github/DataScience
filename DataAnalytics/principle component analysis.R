@@ -1,0 +1,9 @@
+data<-read.csv("pca1.csv",header=TRUE)
+data
+comat<-cov(data)
+comat
+E<-eigen(comat)
+sd_xy<-(E$values)^(1/2)
+E$vectors
+matoo<-t(matrix(c(sd_xy,(sd_xy^2/sum(sd_xy^2)),cumsum((sd_xy^2/sum(sd_xy^2)))),3,3))
+matoo

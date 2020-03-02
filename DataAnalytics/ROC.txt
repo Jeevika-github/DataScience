@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+def pdf(x, std, mean):
+    cons = 1.0 / np.sqrt(2*np.pi*(std**2))
+    pdf_normal_dist = const*np.exp(-((x-mean)**2)/(2.0*(std**2)))
+    return pdf_normal_dist
+x = np.linspace(0, 1, num=100)
+good_pdf = pdf(x,0.1,0.4)
+bad_pdf = pdf(x,0.1,0.6)
+
+def plot_pdf(good_pdf, bad_pdf, ax):
+    ax.fill(x, good_pdf, "g", alpha=0.5)
+    ax.fill(x, bad_pdf,"r", alpha=0.5)
+    ax.set_xlim([0,1])
+    ax.set_ylim([0,5])
+    ax.set_title("Probability Distribution", fontsize=14)
+    ax.set_ylabel('Counts', fontsize=12)
+    ax.set_xlabel('P(X="bad")', fontsize=12)
+    ax.legend(["good","bad"])
+	
+	
+	
+	
+	
+	
+fig, ax = plt.subplots(1,1, figsize=(10,5))
+plot_pdf(good_pdf, bad_pdf, ax)	
+	
